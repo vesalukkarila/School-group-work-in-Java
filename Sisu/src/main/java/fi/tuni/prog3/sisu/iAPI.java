@@ -15,5 +15,5 @@ public interface iAPI {
      * @param urlString URL for retrieving information from the Sisu API.
      * @return JsonObject.
      */
-    JsonObject getJsonObjectFromApi(String urlString);
+    public JsonObject getJsonObjectFromApi(String urlString);
 }

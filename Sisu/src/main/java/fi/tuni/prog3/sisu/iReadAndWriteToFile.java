@@ -17,7 +17,7 @@ public interface iReadAndWriteToFile {
      * @return true if the read was successful, otherwise false.
      * @throws Exception if the method e.g, cannot find the file. 
      */
-    boolean readFromFile(String fileName) throws Exception; 
+    public boolean readFromFile(String fileName) throws Exception; 
     
     /**
      * Write the student progress as JSON into the given file.
@@ -25,5 +25,5 @@ public interface iReadAndWriteToFile {
      * @return true if the write was successful, otherwise false.
      * @throws Exception if the method e.g., cannot write to a file.
      */
-    boolean writeToFile(String fileName) throws Exception;
+    public boolean writeToFile(String fileName) throws Exception;
 }
