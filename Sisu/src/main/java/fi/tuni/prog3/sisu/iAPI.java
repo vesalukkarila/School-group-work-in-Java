@@ -7,6 +7,7 @@ package fi.tuni.prog3.sisu;
 import com.google.gson.JsonObject;
 
 /**
+ * 3 arvosana
  * Interface for extracting data from the Sisu API.
  */
 public interface iAPI {

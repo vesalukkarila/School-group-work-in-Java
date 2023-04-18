@@ -8,6 +8,8 @@ import java.io.FileNotFoundException;
 import java.io.IOException;
 
 /**
+ * 1 arvosana
+ * tätä voi käyttää tilanteen tallentamiseen
  * Interface with methods to read from a file and write to a file.
  */
 public interface iReadAndWriteToFile {
