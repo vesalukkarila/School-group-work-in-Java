@@ -14,6 +14,7 @@ public abstract class DegreeModule {
     private String groupId;
     private int minCredits;
     
+    
     /**
      * A constructor for initializing the member variables.
      * @param name name of the Module or Course.
