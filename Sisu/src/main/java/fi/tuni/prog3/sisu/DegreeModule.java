@@ -8,6 +8,7 @@ package fi.tuni.prog3.sisu;
  *An abstract class for storing information on Modules and Courses.
  */
 public abstract class DegreeModule {
+    
     private String name;
     private String id;
     private String groupId;
