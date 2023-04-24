@@ -38,6 +38,16 @@ public class Sisu extends Application {
         Scene scene = new Scene(root, 800, 500);                      
         stage.setScene(scene);
         stage.setTitle("SisuGUI");
+        
+        
+        
+        
+        
+        
+        
+        
+        
+        
         stage.show();
     }
 
@@ -58,13 +68,22 @@ public class Sisu extends Application {
     private VBox getLeftVBox() {
         //Creating a VBox for the left side.
         VBox leftVBox = new VBox();
+        leftVBox.setId("leftbox");      
         leftVBox.setPrefWidth(380);
         leftVBox.setStyle("-fx-background-color: #8fc6fd;");
-        
         leftVBox.getChildren().add(new Label("Left Panel"));
+
+        Button chooseButton = new Button("Choose DegreeProgramme");
+        chooseButton.setId("chooseButton");
+        
+        Label testikentta = new Label("");
+        testikentta.setId("infoLabel");
+        
+        leftVBox.getChildren().addAll(chooseButton, testikentta);
         
         return leftVBox;
     }
+    
     
     private VBox getRightVBox() {
         //Creating a VBox for the right side.
