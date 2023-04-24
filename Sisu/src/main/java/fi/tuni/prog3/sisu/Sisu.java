@@ -1,5 +1,6 @@
 package fi.tuni.prog3.sisu;
 
+import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.application.Platform;
 import javafx.event.ActionEvent;
@@ -7,6 +8,7 @@ import javafx.geometry.Insets;
 import javafx.geometry.Pos;
 import javafx.scene.Scene;
 import javafx.scene.control.Button;
+import javafx.scene.control.ChoiceBox;
 import javafx.scene.control.Label;
 import javafx.scene.layout.BorderPane;
 import javafx.scene.layout.HBox;
@@ -40,7 +42,22 @@ public class Sisu extends Application {
         stage.setTitle("SisuGUI");
         
         
+        VBox left = (VBox) root.lookup("#leftbox");
+        VBox right = (VBox) root.lookup("#rightbox");
+        Label infoLabel = (Label) root.lookup("#infoLabel");
+        Button chooseButton = (Button) root.lookup("#chooseButton");
         
+        ChoiceBox choiceBox = new ChoiceBox();
+        choiceBox.setId("choicebox");
+        left.getChildren().add(choiceBox);
+        
+        //Fetching all degreeprogrammes from Sisu-api
+        ArrayList<ActualDegreeModule> degreeList = RootSearch.allDegreeProgrammes();       
+        
+        
+        for (var degmod : degreeList) {                                            
+            choiceBox.getItems().add(degmod.getName());
+        }
         
         
         
