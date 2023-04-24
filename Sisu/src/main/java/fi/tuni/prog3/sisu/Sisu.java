@@ -65,7 +65,9 @@ public class Sisu extends Application {
         return centerHBox;
     }
     
-    private VBox getLeftVBox() {
+    
+    
+    private VBox getLeftVBox() {                
         //Creating a VBox for the left side.
         VBox leftVBox = new VBox();
         leftVBox.setId("leftbox");      
@@ -76,18 +78,18 @@ public class Sisu extends Application {
         Button chooseButton = new Button("Choose DegreeProgramme");
         chooseButton.setId("chooseButton");
         
-        Label testikentta = new Label("");
-        testikentta.setId("infoLabel");
+        Label infoLabel = new Label("");
+        infoLabel.setId("infoLabel");
         
-        leftVBox.getChildren().addAll(chooseButton, testikentta);
+        leftVBox.getChildren().addAll(chooseButton, infoLabel);
         
         return leftVBox;
     }
     
-    
-    private VBox getRightVBox() {
+      private VBox getRightVBox() {
         //Creating a VBox for the right side.
         VBox rightVBox = new VBox();
+        rightVBox.setId("rightbox");    
         rightVBox.setPrefWidth(380);
         rightVBox.setStyle("-fx-background-color: #b1c2d4;");
         
