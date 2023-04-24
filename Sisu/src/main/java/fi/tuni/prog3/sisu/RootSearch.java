@@ -18,6 +18,8 @@ import java.util.ArrayList;
  * @author vesalukkarila, mikkojuntunen
  */
 public interface RootSearch {
+    
+    
     /**
      * Makes a query to Sisu API of all the degreeprogrammes in 2023
      * and with the help of handleAllDegreeModules, creates objects of these
@@ -26,14 +28,13 @@ public interface RootSearch {
      * @throws MalformedURLException
      * @throws IOException 
      */
-
-     public static ArrayList<ActualDegreeModule> allDegreeProgrammes () 
-        throws MalformedURLException, IOException {
-     
-        URL allDegreesUrl = new URL ("https://sis-tuni.funidata.fi/kori/api/"
-        + "module-search?curriculumPeriodId=uta-lvv-2023&universityId="
-        + "tuni-university-root-id&moduleType=DegreeProgramme&limit=1000");
+    public static ArrayList<ActualDegreeModule> allDegreeProgrammes () 
+                        throws MalformedURLException, IOException {
         
+        URL allDegreesUrl = new URL ("https://sis-tuni.funidata.fi/kori/api/"
+                + "module-search?curriculumPeriodId=uta-lvv-2023&universityId="
+                + "tuni-university-root-id&moduleType=DegreeProgramme&limit=1000");
+
         HttpURLConnection con = (HttpURLConnection) allDegreesUrl.openConnection();
         con.setRequestMethod("GET");   //asiointitietoja
         con.setRequestProperty("Content-Type", "application/json");
@@ -41,7 +42,7 @@ public interface RootSearch {
         con.setReadTimeout(5000);
         
         BufferedReader textIn = new BufferedReader(
-        new InputStreamReader(con.getInputStream()));
+            new InputStreamReader(con.getInputStream()));
         String inputLine;
         StringBuilder content = new StringBuilder();
 
@@ -60,19 +61,17 @@ public interface RootSearch {
         for (JsonElement element : allDegreesArray) {
             JsonObject degreeObject = element.getAsJsonObject();
             degreeList.add(handleAllDegreeModules(degreeObject));
-        }
-
+        }    
         return degreeList;
-     }
-}
-
-    /**
+    }
+      
+   /**
     * Creates an object from a degreeprogramme
     * @param fileObject JsonObject that inholds all information needed
     * @return ActualDegreeModule-object
     */
     public static ActualDegreeModule handleAllDegreeModules (JsonObject fileObject) {                   
-
+        
         String id = fileObject.get("id").getAsString();
         String groupId = fileObject.get("groupId").getAsString();
         String name = fileObject.get("name").getAsString();
@@ -80,7 +79,7 @@ public interface RootSearch {
         int creditsMin = creditsObject.get("min").getAsInt();
         
         ActualDegreeModule olio = new ActualDegreeModule(name, id, groupId, 
-                    creditsMin, "degree");
-                    
+                                    creditsMin, "degree");
         return olio;                                                
-    }
+    } 
+}
