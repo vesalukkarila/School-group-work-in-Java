@@ -65,3 +65,22 @@ public interface RootSearch {
         return degreeList;
      }
 }
+
+    /**
+    * Creates an object from a degreeprogramme
+    * @param fileObject JsonObject that inholds all information needed
+    * @return ActualDegreeModule-object
+    */
+    public static ActualDegreeModule handleAllDegreeModules (JsonObject fileObject) {                   
+
+        String id = fileObject.get("id").getAsString();
+        String groupId = fileObject.get("groupId").getAsString();
+        String name = fileObject.get("name").getAsString();
+        JsonObject creditsObject = fileObject.get("credits").getAsJsonObject();
+        int creditsMin = creditsObject.get("min").getAsInt();
+        
+        ActualDegreeModule olio = new ActualDegreeModule(name, id, groupId, 
+                    creditsMin, "degree");
+                    
+        return olio;                                                
+    }
