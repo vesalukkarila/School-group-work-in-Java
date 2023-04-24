@@ -52,13 +52,14 @@ public class Sisu extends Application {
         left.getChildren().add(choiceBox);
         
         //Fetching all degreeprogrammes from Sisu-api
+        /*
         ArrayList<ActualDegreeModule> degreeList = RootSearch.allDegreeProgrammes();       
         
         
         for (var degmod : degreeList) {                                            
             choiceBox.getItems().add(degmod.getName());
         }
-        
+        */
         
         
         
