@@ -1,13 +1,23 @@
 package fi.tuni.prog3.sisu;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
+import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
+
 /**
  * This interface handles the rootsearch to Sisu API
  * returns all degrees in 2023
  * @author vesalukkarila, mikkojuntunen
  */
 public interface RootSearch {
-    
-    
     /**
      * Makes a query to Sisu API of all the degreeprogrammes in 2023
      * and with the help of handleAllDegreeModules, creates objects of these
@@ -17,4 +27,41 @@ public interface RootSearch {
      * @throws IOException 
      */
 
+     public static ArrayList<ActualDegreeModule> allDegreeProgrammes () 
+        throws MalformedURLException, IOException {
+     
+        URL allDegreesUrl = new URL ("https://sis-tuni.funidata.fi/kori/api/"
+        + "module-search?curriculumPeriodId=uta-lvv-2023&universityId="
+        + "tuni-university-root-id&moduleType=DegreeProgramme&limit=1000");
+        
+        HttpURLConnection con = (HttpURLConnection) allDegreesUrl.openConnection();
+        con.setRequestMethod("GET");   //asiointitietoja
+        con.setRequestProperty("Content-Type", "application/json");
+        con.setConnectTimeout(5000);
+        con.setReadTimeout(5000);
+        
+        BufferedReader textIn = new BufferedReader(
+        new InputStreamReader(con.getInputStream()));
+        String inputLine;
+        StringBuilder content = new StringBuilder();
+
+        while ((inputLine = textIn.readLine()) != null) {
+            content.append(inputLine);
+        }
+        textIn.close();
+        
+        String mjono = content.toString();
+        JsonElement fileElement = JsonParser.parseString(mjono);
+        JsonObject fileObject = fileElement.getAsJsonObject();
+        JsonArray allDegreesArray = fileObject.get("searchResults").getAsJsonArray();
+        
+        ArrayList<ActualDegreeModule> degreeList = new ArrayList<>();                          
+        
+        for (JsonElement element : allDegreesArray) {
+            JsonObject degreeObject = element.getAsJsonObject();
+            degreeList.add(handleAllDegreeModules(degreeObject));
+        }
+
+        return degreeList;
+     }
 }
