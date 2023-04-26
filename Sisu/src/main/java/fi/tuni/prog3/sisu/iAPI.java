@@ -97,8 +97,14 @@ public interface iAPI {
     
 
    
+   /**
+     * Creates a Course-object
+     * @param fileObject a JsonObject representing a course
+     * @return DegreeModule-object, the baseclass of all classes
+     */
     public static DegreeModule handleCourse (JsonObject fileObject) {
-          String id = fileObject.get("id").getAsString();
+       
+        String id = fileObject.get("id").getAsString();
         String groupId = fileObject.get("groupId").getAsString();
         JsonObject creditsObject = fileObject.get("credits").getAsJsonObject();
         int credits = creditsObject.get("min").getAsInt();
@@ -110,17 +116,19 @@ public interface iAPI {
         else
             name = nameObject.get("en").getAsString();
         
-        CourseModule olio = new CourseModule(name, id, groupId, credits, "course");
-        return olio;
-        
+        CourseModule module = new CourseModule(name, id, groupId, credits, "course");
+        return module;
     }
     
     
 
-  
+    /**
+     * Creates a studymodule-object
+     * @param fileObject a JsonObject representing a studymodule
+     * @return DegreeModule-object, the baseclass of all classes
+     */
     public static DegreeModule handleStudyModule (JsonObject fileObject) {                  
     
-        
         String id = fileObject.get("id").getAsString();
         String groupId = fileObject.get("groupId").getAsString();
         JsonObject nameObject = fileObject.get("name").getAsJsonObject();
@@ -134,16 +142,21 @@ public interface iAPI {
         JsonObject creditsObject = fileObject.get("targetCredits").getAsJsonObject();
         int creditsMin = creditsObject.get("min").getAsInt();
         
-        StudyModule olio = new StudyModule(name, id, groupId, creditsMin, "study");
-        return olio;
+        StudyModule module = new StudyModule(name, id, groupId, creditsMin, "study");
+        return module;
   
     }
     
     
  
-   
+    /**
+     * Creates a groupingmodule-object
+     * @param fileObject a JsonObject representing a groupingmodule
+     * @return DegreeModule-object, the baseclass of all classes
+     */
      public static DegreeModule handleGroupingModule (JsonObject fileObject) {                
-      String id = fileObject.get("id").getAsString();
+    
+        String id = fileObject.get("id").getAsString();
         String groupId = fileObject.get("groupId").getAsString();
         JsonObject nameObject = fileObject.get("name").getAsJsonObject();
         String name;
@@ -153,16 +166,21 @@ public interface iAPI {
         else
             name = nameObject.get("en").getAsString();
         
-        GroupingModule olio = new GroupingModule(name, id, groupId, 0, "grouping");
-        return olio;
-        
+        GroupingModule module = new GroupingModule(name, id, groupId, 0, "grouping");
+        return module;
     }
 
     
-   
+     
+  
+     /**
+      * Creates a degreemodule-object
+      * @param fileObject a JsonObject representing a degreemodule
+      * @return DegreeModule-object, the baseclass of all classes
+      */
     public static DegreeModule handleDegreeModule (JsonObject fileObject) {                   
         
-                String id = fileObject.get("id").getAsString();
+        String id = fileObject.get("id").getAsString();
         String groupId = fileObject.get("groupId").getAsString();
         JsonObject nameObject = fileObject.get("name").getAsJsonObject();
         String name;
@@ -175,11 +193,9 @@ public interface iAPI {
         JsonObject creditsObject = fileObject.get("targetCredits").getAsJsonObject();
         int creditsMin = creditsObject.get("min").getAsInt();
 
-        ActualDegreeModule olio = new ActualDegreeModule(name, id, groupId, 
+        ActualDegreeModule module = new ActualDegreeModule(name, id, groupId, 
                                     creditsMin, "degree");
-        return olio;
-        
-    }   
-    
+        return module;
+    }  
     
 }
