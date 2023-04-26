@@ -105,6 +105,28 @@ public class Sisu extends Application {
         stage.show();
     }
 
+        /**
+     * A depth-first algorithm that runs through degree-structure and 
+     * creates tree-items along the way which are then added to parent-item
+     * @param module Degreemodule, baseclass of all used classes
+     * @return TreeItem
+     */
+    private TreeItem treeItemsRecursive (DegreeModule module) {       
+        
+        TreeItem currentItem = null;
+        
+        if (module.getType().equals("course")) {
+             currentItem = new TreeItem(module.getName() + ", credits: " + module.getMinCredits() );  
+        }
+        else 
+            currentItem = new TreeItem(module.getName());
+        
+        for ( var node : module.getArrayList()) {
+            currentItem.getChildren().add(treeItemsRecursive(node));
+        }
+        return currentItem;
+    }
+
     public static void main(String[] args) {
         launch();
     }
