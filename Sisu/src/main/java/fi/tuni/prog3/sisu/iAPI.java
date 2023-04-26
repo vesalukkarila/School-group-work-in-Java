@@ -18,7 +18,6 @@ import java.util.ArrayList;
  */
 public class iAPI {
      
-       
        /**
      * A depth-first algorithm that recursively runs through all child-nodes
      * under the rule-element making Sisu API-querys for each of them and creates
@@ -197,17 +196,8 @@ public class iAPI {
                 }
             }
         }   
-        return moduleObject;    
-        
-        
-        
-        
-        
+        return moduleObject; 
     }
-    
-    
-       
-    
     
        /**
      * Builds and returns an url-address for requested node
@@ -260,12 +250,7 @@ public class iAPI {
         }
         return url;    
     }
-    
-     
-    
-    
 
-   
    /**
      * Creates a Course-object
      * @param fileObject a JsonObject representing a course
@@ -288,8 +273,6 @@ public class iAPI {
         CourseModule module = new CourseModule(name, id, groupId, credits, "course");
         return module;
     }
-    
-    
 
     /**
      * Creates a studymodule-object
@@ -315,9 +298,7 @@ public class iAPI {
         return module;
   
     }
-    
-    
- 
+
     /**
      * Creates a groupingmodule-object
      * @param fileObject a JsonObject representing a groupingmodule
@@ -337,10 +318,7 @@ public class iAPI {
         
         GroupingModule module = new GroupingModule(name, id, groupId, 0, "grouping");
         return module;
-    }
-
-    
-     
+    }  
   
      /**
       * Creates a degreemodule-object
@@ -366,5 +344,4 @@ public class iAPI {
                                     creditsMin, "degree");
         return module;
     }  
-    
 }
