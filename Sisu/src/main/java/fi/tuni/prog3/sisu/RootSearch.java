@@ -13,11 +13,11 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * This interface handles the rootsearch to Sisu API
+ * This class handles the rootsearch to Sisu API
  * returns all degrees in 2023
  * @author vesalukkarila, mikkojuntunen
  */
-public interface RootSearch {
+public class RootSearch {
     
     
     /**

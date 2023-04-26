@@ -13,10 +13,10 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Public interface for making query to Sisu API with the chosen degree´s url
+ * Public class for making query to Sisu API with the chosen degree´s url
  * @author vesalukkarila, mikkojuntunen
  */
-public interface iAPI {
+public class iAPI {
      
        
        /**
