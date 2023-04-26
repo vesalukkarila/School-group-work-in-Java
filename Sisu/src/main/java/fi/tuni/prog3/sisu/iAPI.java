@@ -119,12 +119,12 @@ public interface iAPI {
                                             get("type").getAsString();  
                                     
                                     if (typesArrayList.contains(childNodeType)) {
-                                        DegreeModule lapsiolio = findModules
+                                        DegreeModule childNode = findModules
                                         (urlToChildNode(childNodeType,  
                                                 objectInSecondArray));   
                                         
                                         moduleObject.addChildNodeToArrayList
-                                                        (lapsiolio);
+                                                        (childNode);
                                     }
                                 }
                             }
@@ -136,12 +136,12 @@ public interface iAPI {
                                                                     getAsString();   
                             
                                 if (typesArrayList.contains(childNodeType)) {
-                                    DegreeModule lapsiolio = findModules
+                                    DegreeModule childNode = findModules
                                     (urlToChildNode(childNodeType, 
                                                 objectInFirstArray));
                                     
                                     moduleObject.addChildNodeToArrayList
-                                                    (lapsiolio);
+                                                    (childNode);
 
                                     }  
                         }
@@ -158,10 +158,10 @@ public interface iAPI {
                     JsonObject objectInFirstArray = elementInFirstArray.getAsJsonObject();
                      
                     if (objectInFirstArray.has("rules")) {
-                        JsonArray tokarulesArray = objectInFirstArray.get("rules").
+                        JsonArray secondRulesArray = objectInFirstArray.get("rules").
                                                                 getAsJsonArray();
                         
-                        for (JsonElement elementInSecondArray : tokarulesArray) {
+                        for (JsonElement elementInSecondArray : secondRulesArray) {
                             JsonObject objectInSecondArray = elementInSecondArray.
                                                                 getAsJsonObject();
                             
@@ -171,11 +171,11 @@ public interface iAPI {
                                               get("type").getAsString();
                                     
                                     if (typesArrayList.contains(childNodeType)) {  
-                                        DegreeModule lapsiolio = findModules
+                                        DegreeModule childNode = findModules
                                         (urlToChildNode(childNodeType, 
                                                objectInSecondArray));
                                         
-                                        moduleObject.addChildNodeToArrayList(lapsiolio);
+                                        moduleObject.addChildNodeToArrayList(childNode);
 
                                     }    
                             }
@@ -188,10 +188,10 @@ public interface iAPI {
                                                                     getAsString();   
                             
                             if (typesArrayList.contains(childNodeType)) {
-                                DegreeModule lapsiolio = findModules(urlToChildNode
+                                DegreeModule childNode = findModules(urlToChildNode
                                 (childNodeType, objectInFirstArray));
                                 
-                                moduleObject.addChildNodeToArrayList(lapsiolio);
+                                moduleObject.addChildNodeToArrayList(childNode);
                             }
                     }
                 }
