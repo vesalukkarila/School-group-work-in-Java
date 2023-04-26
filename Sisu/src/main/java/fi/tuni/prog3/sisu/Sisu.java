@@ -61,13 +61,46 @@ public class Sisu extends Application {
             choiceBox.getItems().add(degmod.getName());
         }
         
+        chooseButton.setOnAction(new EventHandler<ActionEvent>() {
+            @Override
+            public void handle(ActionEvent t) {
+                                
+                VBox right = (VBox) root.lookup("#rightbox");
+                int selectedIndex = choiceBox.getSelectionModel().getSelectedIndex();
+                ActualDegreeModule module = degreeList.get(selectedIndex);
+               
+                //Building url
+                String groupId = module.getGroupId();                           //tää tehtäis muualla
+                URL url = null;
+                
+                try {
+                    url = getUrl(groupId);
+                } catch (MalformedURLException ex) {                              
+                    Logger.getLogger(Sisu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                  
+                //Fetching all module-objects from Sisu API for the chosen degree
+                
+                try {
+                    DegreeModule degree = iAPI.findModules(url);                  //tää tehtäis muualla
+                    //Running through the degree-structure
+                    TreeItem rootItem = treeItemsRecursive(degree);         //tähän takas
+
+                    TreeView treeView = new TreeView();
+                    treeView.setRoot(rootItem);
+                    right.getChildren().clear();
+                    right.getChildren().add(treeView);
+                    String degreeString = (String) choiceBox.getValue();       
+                    infoLabel.setText("Showing: "+ degreeString); 
+                    
+                    
+                } catch (IOException ex) {
+                    Logger.getLogger(Sisu.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                
+            }
         
-        
-        
-        
-        
-        
-        
+        });
         
         stage.show();
     }
