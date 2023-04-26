@@ -19,7 +19,15 @@ import java.util.ArrayList;
 public interface iAPI {
      
        
-    
+       /**
+     * A depth-first algorithm that recursively runs through all child-nodes
+     * under the rule-element making Sisu API-querys for each of them and creates
+     * objects of these child-nodes (modules) which are then added to parent´s
+     * container
+     * @param url url to the module
+     * @return Degreemodule the baseclass of all module-classes
+     * @throws IOException 
+     */
     public static DegreeModule findModules (URL url) throws IOException {
         
         ArrayList <String> typesArrayList = new ArrayList<>();
@@ -201,7 +209,13 @@ public interface iAPI {
        
     
     
-    
+       /**
+     * Builds and returns an url-address for requested node
+     * @param nodeType description of the nodetype
+     * @param objectInArray a JsonObject holding information needed
+     * @return a url for the object in question
+     * @throws MalformedURLException 
+     */
     public static URL urlToChildNode (String nodeType, JsonObject objectInArray) 
             throws MalformedURLException{
                                            
@@ -247,7 +261,7 @@ public interface iAPI {
         return url;    
     }
     
-    
+     
     
     
 
