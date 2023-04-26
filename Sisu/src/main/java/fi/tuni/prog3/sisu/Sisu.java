@@ -127,6 +127,31 @@ public class Sisu extends Application {
         return currentItem;
     }
 
+        /**
+     * Builds a url-address for ActualDegreeModule
+     * @param groupId String for individual groupid
+     * @return url-address
+     * @throws MalformedURLException 
+     */
+    private URL getUrl (String groupId) throws MalformedURLException {
+        URL url = null;
+        if (groupId.startsWith("otm")) {
+            String beginning = "https://sis-tuni.funidata.fi/kori/api/modules/";
+            String address = beginning + groupId;    
+            url = new URL(address);
+            
+        }                             
+               
+        else {
+            String beginning = "https://sis-tuni.funidata.fi/kori/api/modules/by-group-id?groupId=";
+            String ending = "&universityId=tuni-university-root-id";
+            String address = beginning + groupId + ending;
+            url = new URL(address);    
+        } 
+
+        return url;
+    }
+
     public static void main(String[] args) {
         launch();
     }
