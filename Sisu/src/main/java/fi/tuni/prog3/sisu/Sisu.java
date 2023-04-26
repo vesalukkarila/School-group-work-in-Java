@@ -1,5 +1,6 @@
 package fi.tuni.prog3.sisu;
 
+import java.io.IOException;
 import java.util.ArrayList;
 import javafx.application.Application;
 import javafx.application.Platform;
@@ -22,7 +23,7 @@ import javafx.stage.Stage;
 public class Sisu extends Application {
 
     @Override
-    public void start(Stage stage) {
+    public void start(Stage stage) throws IOException {
         
         //Creating a new BorderPane.
         BorderPane root = new BorderPane();
@@ -51,15 +52,17 @@ public class Sisu extends Application {
         choiceBox.setId("choicebox");
         left.getChildren().add(choiceBox);
         
+        
         //Fetching all degreeprogrammes from Sisu-api
-        /*
         ArrayList<ActualDegreeModule> degreeList = RootSearch.allDegreeProgrammes();       
         
         
         for (var degmod : degreeList) {                                            
             choiceBox.getItems().add(degmod.getName());
         }
-        */
+        
+        
+        
         
         
         
