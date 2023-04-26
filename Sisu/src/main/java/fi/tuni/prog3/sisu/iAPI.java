@@ -74,6 +74,122 @@ public interface iAPI {
             }
         }
      
+            
+       
+        //There is 4 possible "lines" in rule-element, the following goes through
+        //all of them in not so elegant if-else structure
+        boolean objectHasRuleElement = fileObject.has("rule");
+        
+        if (objectHasRuleElement) {
+            String childNodeType;
+            JsonObject firstRuleObject = fileObject.get("rule").
+                    getAsJsonObject();
+            
+            if (firstRuleObject.has("rule")) {
+                JsonObject secondRuleObject = firstRuleObject.get("rule").
+                        getAsJsonObject();
+                
+                if (secondRuleObject.has("rules")) {
+                    JsonArray firstRulesArray = secondRuleObject.
+                            get("rules").getAsJsonArray();
+                                    
+                    for ( JsonElement elementOfFirstArray : firstRulesArray) {
+                        JsonObject objectInFirstArray = elementOfFirstArray.
+                                getAsJsonObject();
+                         
+                        if (objectInFirstArray.has("rules")) {
+                            JsonArray secondRulesArray = objectInFirstArray.
+                                    get("rules").getAsJsonArray();
+
+                            for ( JsonElement elementOfSecondArray : secondRulesArray) {
+                                JsonObject objectInSecondArray = elementOfSecondArray.
+                                        getAsJsonObject();
+                                
+                                // rule - rule - rules - rules - course
+                                if (objectInSecondArray.has("type")) {
+                                    childNodeType = objectInSecondArray.
+                                            get("type").getAsString();  
+                                    
+                                    if (tyypitArrayList.contains(childNodeType)) {
+                                        DegreeModule lapsiolio = findModules
+                                        (urlToChildNode(childNodeType,  
+                                                objectInSecondArray));   
+                                        
+                                        moduleObject.addChildNodeToArrayList
+                                                        (lapsiolio);
+                                    }
+                                }
+                            }
+                        }
+                        
+                        // rule - rule - rules - course
+                        else if (objectInFirstArray.has("type")) {
+                            childNodeType = objectInFirstArray.get("type").
+                                                                    getAsString();   
+                            
+                                if (tyypitArrayList.contains(childNodeType)) {
+                                    DegreeModule lapsiolio = findModules
+                                    (urlToChildNode(childNodeType, 
+                                                objectInFirstArray));
+                                    
+                                    moduleObject.addChildNodeToArrayList
+                                                    (lapsiolio);
+
+                                    }  
+                        }
+                    }
+                }
+            } 
+      
+           
+            else if (firstRuleObject.has("rules")) {
+                JsonArray firstRulesArray = firstRuleObject.get("rules").
+                                                                getAsJsonArray();
+                                
+                for (JsonElement elementInFirstArray : firstRulesArray) {
+                    JsonObject objectInFirstArray = elementInFirstArray.getAsJsonObject();
+                     
+                    if (objectInFirstArray.has("rules")) {
+                        JsonArray tokarulesArray = objectInFirstArray.get("rules").
+                                                                getAsJsonArray();
+                        
+                        for (JsonElement elementInSecondArray : tokarulesArray) {
+                            JsonObject objectInSecondArray = elementInSecondArray.
+                                                                getAsJsonObject();
+                            
+                            // rule - rules - rules - course
+                            if (objectInSecondArray.has("type")) {
+                                    childNodeType = objectInSecondArray.
+                                              get("type").getAsString();
+                                    
+                                    if (tyypitArrayList.contains(childNodeType)) {  
+                                        DegreeModule lapsiolio = findModules
+                                        (urlToChildNode(childNodeType, 
+                                               objectInSecondArray));
+                                        
+                                        moduleObject.addChildNodeToArrayList(lapsiolio);
+
+                                    }    
+                            }
+                        }   
+                    }
+                    
+                    // rule - rules - course
+                    else if (objectInFirstArray.has("type")) {
+                            childNodeType = objectInFirstArray.get("type").
+                                                                    getAsString();   
+                            
+                            if (tyypitArrayList.contains(childNodeType)) {
+                                DegreeModule lapsiolio = findModules(urlToChildNode
+                                (childNodeType, objectInFirstArray));
+                                
+                                moduleObject.addChildNodeToArrayList(lapsiolio);
+                            }
+                    }
+                }
+            }
+        }   
+        return moduleObject;    
         
         
         
