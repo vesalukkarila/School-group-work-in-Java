@@ -203,9 +203,48 @@ public interface iAPI {
     
     
     public static URL urlToChildNode (String nodeType, JsonObject objectInArray) 
-                                                 {
+            throws MalformedURLException{
+                                           
         
+        URL url = null;
         
+        if (nodeType.equals("CourseUnitRule")) {
+            String tunniste = objectInArray.get("courseUnitGroupId").
+                                                                getAsString();
+                                            
+            if (tunniste.startsWith("otm")) {
+                String alku = "https://sis-tuni.funidata.fi/kori/api/course-units/";
+                String osoite = alku + tunniste;
+                url = new URL(osoite);
+            }
+                                            
+            else {
+                String alku = "https://sis-tuni.funidata.fi/kori/api/course-units/"
+                                                        + "by-group-id?groupId=";
+                String loppu = "&universityId=tuni-university-root-id";
+                String osoite = alku + tunniste + loppu;
+                url = new URL(osoite); 
+            }
+        }
+                                        
+        else if (nodeType.equals("ModuleRule")) {
+            String tunniste = objectInArray.get("moduleGroupId").getAsString();
+                                            
+            if (tunniste.startsWith("otm")) {
+                String alku = "https://sis-tuni.funidata.fi/kori/api/modules/";
+                String osoite = alku + tunniste;
+                url = new URL(osoite);
+            }
+                                            
+            else {
+                String alku = "https://sis-tuni.funidata.fi/kori/api/modules/"
+                                                        + "by-group-id?groupId=";
+                String loppu = "&universityId=tuni-university-root-id";
+                String osoite = alku + tunniste + loppu;
+                url = new URL(osoite);
+            }                              
+        }
+        return url;    
     }
     
     
