@@ -1,20 +1,74 @@
-/*
- * Click nbfs://nbhost/SystemFileSystem/Templates/Licenses/license-default.txt to change this license
- * Click nbfs://nbhost/SystemFileSystem/Templates/Classes/Interface.java to edit this template
- */
 package fi.tuni.prog3.sisu;
 
+import com.google.gson.JsonArray;
+import com.google.gson.JsonElement;
 import com.google.gson.JsonObject;
+import com.google.gson.JsonParser;
+import java.io.BufferedReader;
+import java.io.IOException;
+import java.io.InputStreamReader;
+import java.net.HttpURLConnection;
+import java.net.MalformedURLException;
+import java.net.URL;
+import java.util.ArrayList;
 
 /**
- * 3 arvosana
- * Interface for extracting data from the Sisu API.
+ * Public interface for making query to Sisu API with the chosen degree´s url
+ * @author vesalukkarila, mikkojuntunen
  */
 public interface iAPI {
-    /**
-     * Returns a JsonObject that is extracted from the Sisu API.
-     * @param urlString URL for retrieving information from the Sisu API.
-     * @return JsonObject.
-     */
-    public JsonObject getJsonObjectFromApi(String urlString);
+     
+       
+    
+    public static DegreeModule findModules (URL url) throws IOException {
+        
+       
+    }
+    
+    
+       
+    
+    
+    
+    public static URL urlToChildNode (String nodeType, JsonObject objectInArray) 
+                                                 {
+        
+        
+    }
+    
+    
+    
+    
+
+   
+    public static DegreeModule handleCourse (JsonObject fileObject) {
+       
+        
+    }
+    
+    
+
+  
+    public static DegreeModule handleStudyModule (JsonObject fileObject) {                  
+    
+        
+  
+    }
+    
+    
+ 
+   
+     public static DegreeModule handleGroupingModule (JsonObject fileObject) {                
+    
+        
+    }
+
+    
+   
+    public static DegreeModule handleDegreeModule (JsonObject fileObject) {                   
+        
+        
+    }   
+    
+    
 }
