@@ -110,7 +110,7 @@ public interface iAPI {
                                     childNodeType = objectInSecondArray.
                                             get("type").getAsString();  
                                     
-                                    if (tyypitArrayList.contains(childNodeType)) {
+                                    if (typesArrayList.contains(childNodeType)) {
                                         DegreeModule lapsiolio = findModules
                                         (urlToChildNode(childNodeType,  
                                                 objectInSecondArray));   
@@ -127,7 +127,7 @@ public interface iAPI {
                             childNodeType = objectInFirstArray.get("type").
                                                                     getAsString();   
                             
-                                if (tyypitArrayList.contains(childNodeType)) {
+                                if (typesArrayList.contains(childNodeType)) {
                                     DegreeModule lapsiolio = findModules
                                     (urlToChildNode(childNodeType, 
                                                 objectInFirstArray));
@@ -162,7 +162,7 @@ public interface iAPI {
                                     childNodeType = objectInSecondArray.
                                               get("type").getAsString();
                                     
-                                    if (tyypitArrayList.contains(childNodeType)) {  
+                                    if (typesArrayList.contains(childNodeType)) {  
                                         DegreeModule lapsiolio = findModules
                                         (urlToChildNode(childNodeType, 
                                                objectInSecondArray));
@@ -179,7 +179,7 @@ public interface iAPI {
                             childNodeType = objectInFirstArray.get("type").
                                                                     getAsString();   
                             
-                            if (tyypitArrayList.contains(childNodeType)) {
+                            if (typesArrayList.contains(childNodeType)) {
                                 DegreeModule lapsiolio = findModules(urlToChildNode
                                 (childNodeType, objectInFirstArray));
                                 
