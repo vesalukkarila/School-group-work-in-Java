@@ -223,39 +223,39 @@ public interface iAPI {
         URL url = null;
         
         if (nodeType.equals("CourseUnitRule")) {
-            String tunniste = objectInArray.get("courseUnitGroupId").
+            String id = objectInArray.get("courseUnitGroupId").
                                                                 getAsString();
                                             
-            if (tunniste.startsWith("otm")) {
-                String alku = "https://sis-tuni.funidata.fi/kori/api/course-units/";
-                String osoite = alku + tunniste;
-                url = new URL(osoite);
+            if (id.startsWith("otm")) {
+                String beginning = "https://sis-tuni.funidata.fi/kori/api/course-units/";
+                String addr = beginning + id;
+                url = new URL(addr);
             }
                                             
             else {
-                String alku = "https://sis-tuni.funidata.fi/kori/api/course-units/"
+                String beginning = "https://sis-tuni.funidata.fi/kori/api/course-units/"
                                                         + "by-group-id?groupId=";
-                String loppu = "&universityId=tuni-university-root-id";
-                String osoite = alku + tunniste + loppu;
-                url = new URL(osoite); 
+                String end = "&universityId=tuni-university-root-id";
+                String addr = beginning + id + end;
+                url = new URL(addr); 
             }
         }
                                         
         else if (nodeType.equals("ModuleRule")) {
-            String tunniste = objectInArray.get("moduleGroupId").getAsString();
+            String id = objectInArray.get("moduleGroupId").getAsString();
                                             
-            if (tunniste.startsWith("otm")) {
-                String alku = "https://sis-tuni.funidata.fi/kori/api/modules/";
-                String osoite = alku + tunniste;
-                url = new URL(osoite);
+            if (id.startsWith("otm")) {
+                String beginning = "https://sis-tuni.funidata.fi/kori/api/modules/";
+                String addr = beginning + id;
+                url = new URL(addr);
             }
                                             
             else {
-                String alku = "https://sis-tuni.funidata.fi/kori/api/modules/"
+                String beginning = "https://sis-tuni.funidata.fi/kori/api/modules/"
                                                         + "by-group-id?groupId=";
-                String loppu = "&universityId=tuni-university-root-id";
-                String osoite = alku + tunniste + loppu;
-                url = new URL(osoite);
+                String end = "&universityId=tuni-university-root-id";
+                String addr = beginning + id + end;
+                url = new URL(addr);
             }                              
         }
         return url;    
