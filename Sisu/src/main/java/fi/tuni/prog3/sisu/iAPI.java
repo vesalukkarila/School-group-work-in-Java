@@ -98,7 +98,20 @@ public interface iAPI {
 
    
     public static DegreeModule handleCourse (JsonObject fileObject) {
-       
+          String id = fileObject.get("id").getAsString();
+        String groupId = fileObject.get("groupId").getAsString();
+        JsonObject creditsObject = fileObject.get("credits").getAsJsonObject();
+        int credits = creditsObject.get("min").getAsInt();
+        JsonObject nameObject = fileObject.get("name").getAsJsonObject();
+        String name;
+        
+        if (nameObject.has("fi"))
+            name = nameObject.get("fi").getAsString();
+        else
+            name = nameObject.get("en").getAsString();
+        
+        CourseModule olio = new CourseModule(name, id, groupId, credits, "course");
+        return olio;
         
     }
     
