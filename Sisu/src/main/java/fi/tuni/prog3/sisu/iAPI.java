@@ -13,7 +13,7 @@ import java.net.URL;
 import java.util.ArrayList;
 
 /**
- * Public class for making query to Sisu API with the chosen degree´s url
+ * Public class for making queries to Sisu API with the chosen degree's url
  * @author vesalukkarila, mikkojuntunen
  */
 public class iAPI {
@@ -79,9 +79,7 @@ public class iAPI {
                 default -> {
                 }
             }
-        }
-     
-            
+        }  
        
         //There is 4 possible "lines" in rule-element, the following goes through
         //all of them in not so elegant if-else structure
@@ -147,7 +145,6 @@ public class iAPI {
                     }
                 }
             } 
-      
            
             else if (firstRuleObject.has("rules")) {
                 JsonArray firstRulesArray = firstRuleObject.get("rules").
