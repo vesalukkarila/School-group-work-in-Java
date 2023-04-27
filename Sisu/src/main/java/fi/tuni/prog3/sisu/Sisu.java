@@ -35,7 +35,7 @@ public class Sisu extends Application {
         
         BorderPane root = new BorderPane();
         TabPane tabPane = new TabPane();
-        ChoiceBox choiceBox = new ChoiceBox<>();                    //<STRING>
+        ChoiceBox choiceBox = new ChoiceBox<>();
         
         ArrayList<ActualDegreeModule> degreeList = RootSearch.allDegreeProgrammes();
         
@@ -47,7 +47,7 @@ public class Sisu extends Application {
         Tab tabLeft = new Tab("Choose a Degree Programme");
         tabLeft.setClosable(false);
         Button button1 = getQuitButton();
-        VBox tab1Content = new VBox(new Label("Choose an degree:"), choiceBox, button1);
+        VBox tab1Content = new VBox(new Label("Choose a degree:"), choiceBox, button1);
         
         
         tab1Content.setSpacing(10);
@@ -150,6 +150,7 @@ public class Sisu extends Application {
         return currentItem;
     }
 
+    
         /**
      * Builds a url-address for ActualDegreeModule
      * @param groupId String for individual groupid
@@ -175,11 +176,16 @@ public class Sisu extends Application {
         return url;
     }
 
+    
     public static void main(String[] args) {
         launch();
     }
     
     
+    /**
+     * Creates a quit-button
+     * @return a quit button
+     */
     private Button getQuitButton() {
         //Creating a button.
         Button button = new Button("Quit");

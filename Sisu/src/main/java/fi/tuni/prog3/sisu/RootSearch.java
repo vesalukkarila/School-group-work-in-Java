@@ -41,15 +41,15 @@ public class RootSearch {
         con.setConnectTimeout(5000);
         con.setReadTimeout(5000);
         
-        BufferedReader textIn = new BufferedReader(
-            new InputStreamReader(con.getInputStream()));
-        String inputLine;
-        StringBuilder content = new StringBuilder();
-
-        while ((inputLine = textIn.readLine()) != null) {
-            content.append(inputLine);
+        StringBuilder content;
+        try (BufferedReader textIn = new BufferedReader(
+                new InputStreamReader(con.getInputStream()))) {
+            String inputLine;
+            content = new StringBuilder();
+            while ((inputLine = textIn.readLine()) != null) {
+                content.append(inputLine);
+            }
         }
-        textIn.close();
         
         String mjono = content.toString();
         JsonElement fileElement = JsonParser.parseString(mjono);
