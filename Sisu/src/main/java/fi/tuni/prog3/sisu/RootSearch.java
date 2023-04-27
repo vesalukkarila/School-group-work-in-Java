@@ -78,8 +78,8 @@ public class RootSearch {
         JsonObject creditsObject = fileObject.get("credits").getAsJsonObject();
         int creditsMin = creditsObject.get("min").getAsInt();
         
-        ActualDegreeModule olio = new ActualDegreeModule(name, id, groupId, 
+        ActualDegreeModule module = new ActualDegreeModule(name, id, groupId, 
                                     creditsMin, "degree");
-        return olio;                                                
+        return module;                                                
     } 
 }

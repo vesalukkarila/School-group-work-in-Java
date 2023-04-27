@@ -47,7 +47,8 @@ public class Sisu extends Application {
         Tab tabLeft = new Tab("Choose a Degree Programme");
         tabLeft.setClosable(false);
         Button button1 = getQuitButton();
-        VBox tab1Content = new VBox(new Label("Choose a degree:"), choiceBox, button1);
+        VBox tab1Content = new VBox(new Label("Choose a degree:"), 
+                choiceBox, button1);
         
         
         tab1Content.setSpacing(10);
@@ -104,7 +105,8 @@ public class Sisu extends Application {
                 try {
                     url = getUrl(groupId);
                 } catch (MalformedURLException ex) {                              
-                    java.util.logging.Logger.getLogger(Sisu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    java.util.logging.Logger.getLogger(Sisu.class.getName()).
+                            log(java.util.logging.Level.SEVERE, null, ex);
                 }
                 
                 try {
@@ -118,7 +120,8 @@ public class Sisu extends Application {
                     tree.setRoot(rootItem);
                     
                 } catch (IOException ex) {
-                    java.util.logging.Logger.getLogger(Sisu.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
+                    java.util.logging.Logger.getLogger(Sisu.class.getName()).
+                            log(java.util.logging.Level.SEVERE, null, ex);
                 }   
             }
         });
