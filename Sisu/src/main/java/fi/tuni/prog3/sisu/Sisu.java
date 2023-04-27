@@ -1,8 +1,6 @@
 package fi.tuni.prog3.sisu;
 
 import java.io.IOException;
-import java.lang.System.Logger;
-import java.lang.System.Logger.Level;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.ArrayList;
@@ -181,48 +179,6 @@ public class Sisu extends Application {
         launch();
     }
     
-    private HBox getCenterHbox() {
-        //Creating an HBox.
-        HBox centerHBox = new HBox(10);
-        
-        //Adding two VBox to the HBox.
-        centerHBox.getChildren().addAll(getLeftVBox(), getRightVBox());
-        
-        return centerHBox;
-    }
-    
-    
-    
-    private VBox getLeftVBox() {                
-        //Creating a VBox for the left side.
-        VBox leftVBox = new VBox();
-        leftVBox.setId("leftbox");      
-        leftVBox.setPrefWidth(380);
-        leftVBox.setStyle("-fx-background-color: #8fc6fd;");
-        leftVBox.getChildren().add(new Label("Left Panel"));
-
-        Button chooseButton = new Button("Choose DegreeProgramme");
-        chooseButton.setId("chooseButton");
-        
-        Label infoLabel = new Label("");
-        infoLabel.setId("infoLabel");
-        
-        leftVBox.getChildren().addAll(chooseButton, infoLabel);
-        
-        return leftVBox;
-    }
-    
-      private VBox getRightVBox() {
-        //Creating a VBox for the right side.
-        VBox rightVBox = new VBox();
-        rightVBox.setId("rightbox");    
-        rightVBox.setPrefWidth(380);
-        rightVBox.setStyle("-fx-background-color: #b1c2d4;");
-        
-        rightVBox.getChildren().add(new Label("Right Panel"));
-        
-        return rightVBox;
-    }
     
     private Button getQuitButton() {
         //Creating a button.
