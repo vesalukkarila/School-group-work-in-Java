@@ -1,22 +1,15 @@
-# Ohjelmointi 3 projektin tietovarasto
+# Programming 3 course, comp.cs.140, spring 2023
+A school project done in group of two.
 
-Tämä on ryhmäsi yhteinen tietovarasto projektin tekemistä varten. Huomaa, että nyt
-projektissa on useita jäseniä ja tekemisesi vaikuttaa muiden työhön. Liitä harjoitustyön
-materiaalien etätietovarasto (https://course-gitlab.tuni.fi/compcs140-spring2023/group_template_project)
-paikalliseen tietovarastoosi remoteksi, jotta voit ladata kurssin tarjoamaa materiaalia.
+## Learning goals
+Adding functionality to a program using object oriented design.
+Using external libraries as a part of the implementation (design by contract).
+Implementing a GUI as a part of program.
+Inheritance.
+Json parsing.
+Unit testing.
+Implementing a program as a team effort.
 
-JSON-tiedostoja esimerkiksi opintosuunnitelmatietojen lukemiseen on tarjolla tietovarastossa kansiossa json. Tiedosto json/modules/otm-3990be25-c9fd-4dae-904c-547ac11e8302.json on juuritason DegreeProgramme-moduuli.
-
-Tätä tiedostoa saa (ja on hyväkin) muuttaa projektin aloittamisen jälkeen.
-
-# Programming 3 project repository
-
-This is the repository for implementing the course project for your group. Note that
-your project now has several members and what you do impacts other's work. Add the remote
-repository for the project material (https://course-gitlab.tuni.fi/compcs140-spring2023/group_template_project)
-as a remote to your local repository to fetch the code provided by the course.
-
-Some example JSON files are under the json subdirectory. The file json/modules/otm-3990be25-c9fd-4dae-904c-547ac11e8302.json
-is a root level DegreeProgramme module.
-
-You are allowed (and probably should) make changes to this file after you have started your project.
+## Program
+Sisu is web application where students of Tampere University draft their personal study plan and sign up for courses.
+This program fetches and parses JSON data from Sisu API. Selected study degree structure is then shown in GUI. 
