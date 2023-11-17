@@ -22,6 +22,6 @@ Json parsing.
 Unit testing.
 Implementing a program as a team effort.
 
-### Program
+### Description
 Sisu is web application where students of Tampere University draft their personal study plan and sign up for courses.
-This program fetches and parses JSON data from Sisu API. Selected study degree structure is then shown in GUI. 
+This implementation fetches and parses JSON data from Sisu API. Selected study degree structure is then shown in GUI for viewing. 
