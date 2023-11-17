@@ -1,6 +1,18 @@
 # Programming 3 course, comp.cs.140, spring 2023
 A school project done in group of two.
 
+## Usage
+
+### Run locally
+Navigate to Sisu/target
+```sh
+java -jar Sisu-1.0.one-jar.jar
+```
+And if javaFX not installed, run the following with correct file path
+```sh
+java --module-path "C:\Program Files\Java\javafx-sdk-18\lib" --add-modules javafx.controls,javafx.fxml -jar Sisu-1.0.one-jar.jar
+```
+
 ## Learning goals
 Adding functionality to a program using object oriented design.
 Using external libraries as a part of the implementation (design by contract).
