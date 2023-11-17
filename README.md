@@ -8,7 +8,7 @@ Navigate to Sisu/target
 ```sh
 java -jar Sisu-1.0.one-jar.jar
 ```
-And if javaFX not installed, run the following with correct file path
+If you don´t have javaFX installed, run the following with correct file path
 ```sh
 java --module-path "C:\Program Files\Java\javafx-sdk-18\lib" --add-modules javafx.controls,javafx.fxml -jar Sisu-1.0.one-jar.jar
 ```
