@@ -1,8 +1,8 @@
 # school-project-comp.cs.140
-Programming course 3, project done in group of two, spring -23.
-Sisu is web application where students of Tampere University draft their personal study plan and sign up for courses.
-This implementation fetches and parses JSON data from Sisu API. Selected study degree structure is then shown in GUI for viewing. 
-
+- Programming course 3, project done in group of two, spring -23.
+- Sisu is web application where students of Tampere University draft their personal study plan and sign up for courses.
+- This implementation fetches and parses JSON data from Sisu API. Selected study degree structure is then shown in GUI for viewing. 
+- Overall grade for the course: 4
 ## Usage
 
 ### Run locally
