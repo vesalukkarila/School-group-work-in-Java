@@ -1,5 +1,5 @@
-# Programming 3 course, comp.cs.140, spring 2023
-A school project done in group of two.
+# school-project-comp.cs.140
+Programming course 3, project done in group of two, spring -23.
 
 ## Usage
 
