@@ -4,7 +4,7 @@ Programming course 3, project done in group of two, spring -23.
 ## Usage
 
 ### Run locally
-Navigate to Sisu/target
+Packaged into JAR file for easy distributing, navigate to Sisu/target
 ```sh
 java -jar Sisu-1.0.one-jar.jar
 ```
